@@ -1,7 +1,7 @@
 // Função que realiza a seleção de atividades usando o algoritmo guloso
 function activitySelection(start, end) {
     // Cria uma lista de objetos {start, end} associando os tempos de início e fim
-    const activities = start.map((s, i) => ({ start: s, end: end[i] }));
+    const activities = start.map((s, i) => ({id: i, start: s, end: end[i] }));
 
     // Ordena as atividades com base no tempo de término (end) em ordem crescente
     activities.sort((a, b) => a.end - b.end);
@@ -39,4 +39,4 @@ const result = activitySelection(start, end);
 
 // Exibe no console as atividades selecionadas
 console.log("Atividades selecionadas:");
-result.forEach(a => console.log(`Início: ${a.start}, Fim: ${a.end}`));
+result.forEach(a => console.log(`ID: ${a.id} Início: ${a.start}, Fim: ${a.end}`));
